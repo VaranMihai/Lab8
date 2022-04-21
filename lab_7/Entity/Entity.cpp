@@ -22,21 +22,27 @@ Entity::Entity(char* n,int day,int s) {
 }
 
 Entity::Entity(const Entity &e) {
-    type = new char[strlen(e.type) + 1];
-    strcpy(this->type , e.type);
-    day = e.day;
-    sum = e.sum;
+    if (e.type != nullptr) {
+        type = new char[strlen(e.type) + 1];
+        strcpy(this->type , e.type);
+        day = e.day;
+        sum = e.sum;
+    }
 }
 
 Entity::~Entity() {
     if (this->type) {
         delete[] this->type;
         this->type = nullptr;
+        this->day = 0;
+        this->sum = 0;
     }
 }
 
 char *Entity::get_name() {
-    return this->type;
+    if(this->type != nullptr) {
+        return this->type;
+    }
 }
 
 char *Entity::to_String() {
@@ -58,6 +64,8 @@ void Entity::set_name(char *n) {
 Entity &Entity::operator=(const Entity &e) {
     if (this != &e) {
         set_name(e.type);
+        set_day(e.day);
+        set_sum(e.sum);
     }
     return *this;
 }
@@ -67,20 +75,24 @@ bool Entity::operator==(const Entity &e) const{
 }
 
 ostream &operator<<(ostream &out, Entity &e) {
-    out << "The type is: " << e.type << endl;
-    out << "The day is: " << e.day << endl;
-    out << "The sum is: " << e.sum << endl;
-    return out;
+    if(e.type!= nullptr) {
+        out << "The type is: " << e.type << endl;
+        out << "The day is: " << e.day << endl;
+        out << "The sum is: " << e.sum << endl;
+        return out;
+    }
 }
 
 istream &operator>>(istream &in, Entity &e) {
-    cout << "Type: ";
-    in >> e.type;
-    cout << "Day: ";
-    in >> e.day;
-    cout << "Sum: ";
-    in >> e.sum;
-    return in;
+    if(e.type != nullptr) {
+        cout << "Type: ";
+        in >> e.type;
+        cout << "Day: ";
+        in >> e.day;
+        cout << "Sum: ";
+        in >> e.sum;
+        return in;
+    }
 }
 
 int Entity::get_day() {
@@ -107,6 +119,10 @@ void Entity::set_sum(int s) {
     if (s != 0) {
         sum = s;
     }
+}
+
+bool Entity::operator<(const Entity &e) {
+    return (strcmp(this->type,e.type) == -1);
 }
 
 

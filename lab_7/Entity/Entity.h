@@ -27,6 +27,7 @@ public:
     void set_day(int d);
     void set_sum(int s);
     Entity& operator=(const Entity &e);
+    bool operator<(const Entity &e);
     bool operator==(const Entity &e) const;
     friend istream& operator>>(istream& in, Entity& e);
     friend ostream& operator<<(ostream& out, Entity& e);

@@ -7,6 +7,7 @@
 
 void test_entity();
 void test_repo();
+void test_filter_type_entities();
 void run_tests();
 
 #endif //LAB_7_TESTS_H

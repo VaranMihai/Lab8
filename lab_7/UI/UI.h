@@ -22,6 +22,8 @@ public:
     void display_all_entities();
 
     void run_menu();
+
+    void read_entities();
 };
 
 

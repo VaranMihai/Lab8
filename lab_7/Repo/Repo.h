@@ -11,7 +11,7 @@
 class Repo {
 private:
 
-    Entity v[100];
+    Entity v[10];
     int no_elems;
 
 public:
@@ -28,7 +28,7 @@ public:
 
     /*
      *  Gets all entities
-     *  @return
+     *  @return all entities
      */
     vector<Entity> get_all();
 
@@ -45,9 +45,48 @@ public:
      */
     int get_size();
 
+    /*
+     *  Returns an entity updated
+     *  @return the entity updated
+     */
     Entity& update_entity(Entity e);
 
-    void delete_entity(Entity e);
+    /*
+     * Deletes an entity from the list of entities
+     * @return the list without the entity
+     */
+    void delete_entity(int day);
+
+    /*
+     *  Gets all entities
+     *  @return all entities
+     */
+    void get_all2();
+
+    /*
+     *  Filters the list for specific entities
+     *  @return the specific entities
+     */
+    void filter_type_entities(char* n);
+
+    /*
+     *  Filters the list for specific entities
+     *  @return the specific entities
+     */
+    void filter_type2_entities(char* n, int val);
+
+
+    /*
+     *  Filters the list for specific entities
+     *  @return the specific entities
+     */
+    void filter_type3_entities(char* n, int val);
+
+    /*
+     * Return the sum of specific entities
+     * @return the sum
+     */
+    int sum_of_types(char* n);
 
     /*
      * Deconstructor

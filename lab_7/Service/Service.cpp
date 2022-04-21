@@ -20,8 +20,28 @@ Repo Service::update_entity(Entity e) {
     repo.update_entity(e);
 }
 
-Repo Service::delete_entity(Entity e) {
-    repo.delete_entity(e);
+Repo Service::delete_entity(int d) {
+    repo.delete_entity(d);
+}
+
+Repo Service::filter_type_entities(char* n) {
+    repo.filter_type_entities(n);
+}
+
+void Service::get_all2() {
+    repo.get_all2();
+}
+
+Repo Service::filter_type2_entities(char *n, int val) {
+    repo.filter_type2_entities(n,val);
+}
+
+Repo Service::filter_type3_entities(char *n, int val) {
+    repo.filter_type3_entities(n,val);
+}
+
+int Service::sum_of_types(char *n) {
+    return repo.sum_of_types(n);
 }
 
 

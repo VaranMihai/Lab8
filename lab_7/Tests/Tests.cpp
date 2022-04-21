@@ -7,6 +7,7 @@
 #include "assert.h"
 #include "string.h"
 #include "../Repo/Repo.h"
+#include "../Service/Service.h"
 
 using namespace std;
 
@@ -35,6 +36,19 @@ void test_repo() {
     repo.add_Entity(e3);
 
     assert(repo.get_size() == 3);
+}
+
+void test_filter_type_entities() {
+    Repo repo;
+    Service service(repo);
+    Entity e1((char*)"internet" , 5, 10);
+    Entity e2((char*)"mancare" , 6, 11);
+    Entity e3((char*)"utilitati" , 7, 14);
+
+    repo.add_Entity(e1);
+    repo.add_Entity(e2);
+    repo.add_Entity(e3);
+
 }
 
 void run_tests() {
